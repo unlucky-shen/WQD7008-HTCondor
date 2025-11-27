@@ -1,32 +1,30 @@
-################
-### WORKFLOW ###
-################
+# WORKFLOW
 
-#################################
-### Run Condor Install Script ###
-#################################
 
+
+### Run Condor Install Script
+```
 chmod +x condorinstall.sh
 
 bash condorinstall.sh
+```
 
-#################################
-### Run Condor Install Script ###
-#################################
 
-Assign Roles to nodes:
+### Assign Roles to nodes:
 
-# Central Manager,
-
+Central Manager,
+```
 curl -fsSL https://get.htcondor.org | sudo GET_HTCONDOR_PASSWORD="$htcondor_password" /bin/bash -s -- --no-dry-run --central-manager $central_manager_name
+```
 
-# Submission Node,
-
+Submission Node,
+```
 curl -fsSL https://get.htcondor.org | sudo GET_HTCONDOR_PASSWORD="$htcondor_password" /bin/bash -s -- --no-dry-run --submit $central_manager_name
+```
 
-# Execution Node,
-
+Execution Node,
+```
 curl -fsSL https://get.htcondor.org | sudo GET_HTCONDOR_PASSWORD="$htcondor_password" /bin/bash -s -- --no-dry-run --execute $central_manager_name
-
+```
 
 
